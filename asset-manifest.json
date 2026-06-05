@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/birthday-ayis/static/css/main.5c3de436.css",
+    "main.js": "/birthday-ayis/static/js/main.e63efb2f.js",
+    "index.html": "/birthday-ayis/index.html",
+    "main.5c3de436.css.map": "/birthday-ayis/static/css/main.5c3de436.css.map",
+    "main.e63efb2f.js.map": "/birthday-ayis/static/js/main.e63efb2f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5c3de436.css",
+    "static/js/main.e63efb2f.js"
+  ]
+}
