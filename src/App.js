@@ -21,11 +21,11 @@ const sections = [
   {
     id: "wish",
     title: "Selamat Ulang Tahun, Ayis",
-    content: `Cie tambah tua:P AKHIRNYA SEUMURAN, FIX GABOLE EJEK AKU TUA!`,
+    content: `Cie tambah tua:P \n AKHIRNYA SEUMURAN, FIX GABOLE EJEK AKU TUA!`,
   },
   {
     id: "hope",
-    title: "My Wishes for You",
+    title: "My wishes for you",
     content: `Sebenernya wishnya udah aku tulis sii di letter tadi, but please jangan dibaca dipahami doang. DILAKUIN!!!`,
   },
   {
@@ -36,14 +36,19 @@ const sections = [
   },
   {
     id: "video",
-    title: "Kmu",
+    title: "Yis umur 1 bulan moment",
     videoUrl: "https://www.youtube.com/embed/OWbtxdq5rvQ",
+  },
+    {
+    id: "video",
+    title: "Cuking jawa ngomong sunda",
+    videoUrl: "https://www.youtube.com/embed/VJSJ7ozW9nI",
   },
   {
     id: "game",
     title: "Maw main gim?",
     gameUrl: "https://www.crazygames.com/",
-    gameLabel: "game",
+    gameLabel: "Click me!",
   },
 ];
 
