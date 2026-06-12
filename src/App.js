@@ -7,7 +7,7 @@ const petals = Array.from({ length: 28 }, (_, i) => ({
   delay: Math.random() * 8,
   duration: 6 + Math.random() * 6,
   size: 10 + Math.random() * 14,
-  emoji: ["🌸", "🌷", "✿", "❀", "🌺"][Math.floor(Math.random() * 5)],
+  emoji: ["🌼", "🌻", "✿", "❀", "💛"][Math.floor(Math.random() * 5)],
 }));
 
 const hearts = Array.from({ length: 12 }, (_, i) => ({
@@ -20,35 +20,31 @@ const hearts = Array.from({ length: 12 }, (_, i) => ({
 const sections = [
   {
     id: "wish",
-    // icon: "🎂",
     title: "Selamat Ulang Tahun, Ayis",
-    // content: `Di hari yang istimewa ini, aku ingin kamu tahu betapa berartinya kamu.\nSelamat ulang tahun, Ayis — semoga hari ini dan seterusnya selalu dipenuhi kebahagiaan yang tulus, tawa yang hangat, dan cinta yang tiada habisnya.`,
+    content: `Cie tambah tua:P AKHIRNYA SEUMURAN, FIX GABOLE EJEK AKU TUA!`,
   },
-  // {
-  //   id: "sweet",
-  //   icon: "🌸",
-  //   title: "Kata-kata Manis Untukmu",
-  //   content: `Kamu adalah salah satu orang paling istimewa yang pernah ada di hidupku.\nAda sesuatu dalam dirimu — cara kamu bicara, cara kamu peduli, cara kamu ada — yang bikin dunia ini terasa lebih hangat dan lebih berarti.\n\nKamu layak mendapatkan semua hal terbaik yang ada di dunia ini.\nSemua kebaikan yang kamu berikan kepada orang lain, semoga kembali kepadamu berlipat ganda.`,
-  // },
-  // {
-  //   id: "hope",
-  //   icon: "✨",
-  //   title: "Harapan & Doa Untukmu",
-  //   content: `Semoga di tahun ini dan tahun-tahun ke depan:\n\n🌟 Setiap langkahmu selalu diberkati dan dipermudah\n💪 Segala mimpi dan cita-citamu perlahan jadi kenyataan\n🌿 Kesehatan selalu menemanimu di setiap hari\n💛 Orang-orang yang kamu sayangi selalu ada untukmu\n🌈 Kebahagiaan datang dari hal-hal kecil yang sering terlewat\n🕊️ Hatimu selalu damai, meskipun dunia terasa berat`,
-  // },
+  {
+    id: "hope",
+    title: "My Wishes for You",
+    content: `Sebenernya wishnya udah aku tulis sii di letter tadi, but please jangan dibaca dipahami doang. DILAKUIN!!!`,
+  },
   {
     id: "confession",
-    // icon: "💌",
-    title: "Theres something i awanna say...",
-    content: `I might not be the best friend u ever had, aku jahat, aku jg banyak salah. Tapi aku beneran peduli sm kamu, aku beneran sayang, not just as friends but... more. Sorry buat jahatku selama ini, aku`,
+    title: "And.. there's something i wanna say...",
+    content: `I might not be the best friend u ever had, aku jahat, aku jg banyak salah. Tapi aku beneran peduli sm kamu, aku beneran sayang, not just as friends but... more. Well.. i love u, still love u, truly deh no fake no tipu. Sorry buat jahatku selama ini, aku berusaha buat nebus, that's why aku mungkin keliatan perhatian banget, nanyain kamu, gopud tf, etc. Semoga luka di hati kamu bisa sembuh sedikit demi sedikit <3`,
     special: true,
   },
-  // {
-  //   id: "close",
-  //   icon: "🎀",
-  //   title: "Untuk Kamu, Ayis",
-  //   content: `Jadilah dirimu yang paling bahagia. Jangan lupa istirahat, jangan lupa makan, jangan lupa tersenyum — karena senyummu itu menular dan memperindah hari-hari orang di sekitarmu.\n\nSemoga ulang tahun ini jadi awal dari babak baru yang lebih indah, lebih berani, dan lebih penuh cinta.\n\nSelamat ulang tahun, Ayis. 🌸\nDengan sepenuh hati,\n— seseorang yang benar-benar menyayangimu.`,
-  // },
+  {
+    id: "video",
+    title: "Kmu",
+    videoUrl: "https://www.youtube.com/embed/OWbtxdq5rvQ",
+  },
+  {
+    id: "game",
+    title: "Maw main gim?",
+    gameUrl: "https://www.crazygames.com/",
+    gameLabel: "game",
+  },
 ];
 
 function FloatingParticle({ petal }) {
@@ -82,13 +78,40 @@ function Section({ section, index }) {
     <div ref={ref} className={`section-card${visible ? " visible" : ""}${section.special ? " special-card" : ""}`} style={{ transitionDelay: index * 0.1 + "s" }}>
       <div className="section-icon">{section.icon}</div>
       <h2 className="section-title">{section.title}</h2>
+
       {section.special && !open ? (
         <div className="locked-content">
           <p className="teaser">Please read me</p>
-          <button className="open-btn" onClick={() => setOpen(true)}>Buka Pesan 💌</button>
+          <button className="open-btn" onClick={() => setOpen(true)}>Open me!</button>
         </div>
-      ) : (
+      ) : section.content ? (
         <p className="section-content">{section.content}</p>
+      ) : null}
+
+      {section.videoUrl && (
+        <div style={{ position: "relative", paddingBottom: "56.25%", borderRadius: "14px", overflow: "hidden", marginTop: "0.5rem" }}>
+          <iframe
+            src={section.videoUrl}
+            title={section.title}
+            style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: 0 }}
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+      )}
+
+      {section.gameUrl && (
+        <div style={{ textAlign: "center", marginTop: "0.5rem" }}>
+          <a
+            href={section.gameUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="open-btn"
+            style={{ display: "inline-block", textDecoration: "none" }}
+          >
+            {section.gameLabel || "Main game 🎮"}
+          </a>
+        </div>
       )}
     </div>
   );
@@ -114,7 +137,6 @@ export default function App() {
       </div>
       <header className={`hero${loaded ? " hero-in" : ""}`}>
         <div className="hero-inner">
-          {/* <p className="pre-title">— made with love —</p> */}
           <h1 className="hero-title">Happy Birthday<br /><em>Ayis</em></h1>
           <div className="divider-line" />
           <p className="hero-sub">May your day always be filled with happiness</p>
@@ -124,7 +146,7 @@ export default function App() {
         {sections.map((sec, i) => <Section key={sec.id} section={sec} index={i} />)}
       </main>
       <footer className="footer">
-        <p>Made with 💗 — khusus untuk Ayis</p>
+        <p>made with love — @siandeluna</p>
       </footer>
     </div>
   );
